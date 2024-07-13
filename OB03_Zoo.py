@@ -90,3 +90,27 @@ class Zoo:
         with open('Staff.txt', encoding='utf-8') as file:
             for line in file.readlines():
                 self.staff.append(eval(line.rstrip('\n')))
+
+
+#Создаём животных
+bird = Bird('Попугай', 'Гоша хоррроооший...', 2)
+mammal = Mammal('Лев', 'Аррр!', 4)
+reptile = Reptile('Змея', 'с-с-с-с', 3)
+
+#Создаём персонал
+vet = Veterinar("Анна", "Ветеринар")
+keeper = Zookeeper("Николай", "Смотритель")
+
+#Добавляем животных в зоопарк и проверяем их метод .make_sound()
+zoo = Zoo()
+zoo.add_animal(bird, mammal, reptile, Mammal('Бычара', 'Иди сюда на', 22))
+zoo.all_animals()
+zoo.animal_sound()
+
+#Добавляем персонал зоопарка
+zoo.add_staff(vet, keeper, Human('Василий', 'Охранник'))
+zoo.all_staff()
+
+#Проверяем методы персонала
+vet.heal(bird)
+keeper.feed(mammal)
