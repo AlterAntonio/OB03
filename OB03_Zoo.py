@@ -111,6 +111,9 @@ zoo.animal_sound()
 zoo.add_staff(vet, keeper, Human('Василий', 'Охранник'))
 zoo.all_staff()
 
+#Проверяем метод сохранения
+zoo.save()
+
 #Проверяем методы персонала
 vet.heal(bird)
 keeper.feed(mammal)
