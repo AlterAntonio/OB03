@@ -145,12 +145,8 @@ zoo.all_animals()
 zoo.all_staff()
 zoo.feed_animals()
 zoo.heal_animals()
-
-
-
-
-
-
-
-
-
+#Пробуем методы по индексам списков
+animals = zoo.animals
+staff = zoo.staff
+staff[0].heal(animals[1])
+staff[1].feed(animals[3])
