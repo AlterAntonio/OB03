@@ -38,10 +38,12 @@ class Human:
 
 #Создаём производные классы по должностям
 class Veterinar(Human):
-    def heal(self, animal): print(f'{self.position} {self.name} лечит: {animal}')
+    def heal(self, animal):
+        if isinstance(animal, (Animal, Human)): print(f'{self.position} {self.name} лечит: {animal}')
 
 class Zookeeper(Human):
-    def feed(self, animal): print(f'{self.position} {self.name} кормит: {animal}')
+    def feed(self, animal):
+        if isinstance(animal, (Animal, Human)): print(f'{self.position} {self.name} кормит: {animal}')
 
 #Создаём класс зоопарка
 class Zoo:
@@ -150,3 +152,6 @@ animals = zoo.animals
 staff = zoo.staff
 staff[0].heal(animals[1])
 staff[1].feed(animals[3])
+
+staff[0].heal(staff[2])
+staff[1].feed(staff[2])
