@@ -38,10 +38,14 @@ class Human:
 
 #Создаём производные классы по должностям
 class Veterinar(Human):
+    def __init__(self, name):
+        super().__init__(name, 'Ветеринар')
     def heal(self, animal):
         if isinstance(animal, (Animal, Human)): print(f'{self.position} {self.name} лечит: {animal}')
 
 class Zookeeper(Human):
+    def __init__(self, name):
+        super().__init__(name, 'Смотритель зоопарка')
     def feed(self, animal):
         if isinstance(animal, (Animal, Human)): print(f'{self.position} {self.name} кормит: {animal}')
 
@@ -110,15 +114,15 @@ class Zoo:
                 self.staff.append(eval(line.rstrip('\n')))
 
 #Коментируем создание объектов для проверки метода загрузки
-'''
+
 #Создаём животных
 bird = Bird('Попугай', 'Гоша хоррроооший...', 2)
 mammal = Mammal('Лев', 'Аррр!', 4)
 reptile = Reptile('Змея', 'с-с-с-с', 3)
 
 #Создаём персонал
-vet = Veterinar("Анна", "Ветеринар")
-keeper = Zookeeper("Николай", "Смотритель")
+vet = Veterinar("Анна")
+keeper = Zookeeper("Николай")
 
 #Добавляем животных в зоопарк и проверяем их метод .make_sound()
 zoo = Zoo()
@@ -155,3 +159,4 @@ staff[1].feed(animals[3])
 
 staff[0].heal(staff[2])
 staff[1].feed(staff[2])
+'''
