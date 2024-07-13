@@ -60,18 +60,34 @@ class Zoo:
             print(f'Теперь в нашем зоопарке работает: {staff}')
 
     def all_animals(self):
+        index = 0
         if self.animals:
             print('Животные нашего зоопарка:')
-            for animal in self.animals: print(animal)
+            for animal in self.animals:
+                print(f'{index} - {animal}')
+                index += 1
 
     def all_staff(self):
+        index = 0
         if self.staff:
             print('Персонал нашего зоопарка:')
-            for employee in self.staff: print(employee)
+            for employee in self.staff:
+                print(f'{index} - {employee}')
+                index += 1
 
     def animal_sound(self):
         for animal in self.animals:
             animal.make_sound()
+
+    def feed_animals(self):
+        for employee in self.staff:
+            if isinstance (employee, Zookeeper):
+                for animal in self.animals: employee.feed(animal)
+
+    def heal_animals(self):
+        for employee in self.staff:
+            if isinstance (employee, Veterinar):
+                for animal in self.animals: employee.heal(animal)
 
     def save(self):
         with open('Animals.txt', 'a', encoding='utf-8') as file:
@@ -119,3 +135,22 @@ zoo.save()
 vet.heal(bird)
 keeper.feed(mammal)
 '''
+
+#Снова создаём объект зоопарк
+zoo = Zoo()
+#Загружаем объекты из файлов
+zoo.restore()
+#Проверяем методы
+zoo.all_animals()
+zoo.all_staff()
+zoo.feed_animals()
+zoo.heal_animals()
+
+
+
+
+
+
+
+
+
