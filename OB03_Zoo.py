@@ -91,7 +91,8 @@ class Zoo:
             for line in file.readlines():
                 self.staff.append(eval(line.rstrip('\n')))
 
-
+#Коментируем создание объектов для проверки метода загрузки
+'''
 #Создаём животных
 bird = Bird('Попугай', 'Гоша хоррроооший...', 2)
 mammal = Mammal('Лев', 'Аррр!', 4)
@@ -117,3 +118,4 @@ zoo.save()
 #Проверяем методы персонала
 vet.heal(bird)
 keeper.feed(mammal)
+'''
