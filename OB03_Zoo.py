@@ -162,3 +162,4 @@ staff[1].feed(animals[3])
 
 staff[0].heal(staff[2])
 staff[1].feed(staff[2])
+animals[2].eat()
