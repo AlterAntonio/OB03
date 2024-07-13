@@ -102,7 +102,10 @@ class Zoo:
 
         with open('Staff.txt', 'a', encoding='utf-8') as file:
             for employee in self.staff:
-                file.write(f'{employee.__class__.__name__}("{employee.name}", "{employee.position}")' + '\n')
+                if isinstance(employee, (Veterinar, Zookeeper)):
+                    file.write(f'{employee.__class__.__name__}("{employee.name}")' + '\n')
+                else:
+                    file.write(f'{employee.__class__.__name__}("{employee.name}", "{employee.position}")' + '\n')
 
     def restore(self):
         with open('Animals.txt', encoding='utf-8') as file:
@@ -114,7 +117,7 @@ class Zoo:
                 self.staff.append(eval(line.rstrip('\n')))
 
 #Коментируем создание объектов для проверки метода загрузки
-
+'''
 #Создаём животных
 bird = Bird('Попугай', 'Гоша хоррроооший...', 2)
 mammal = Mammal('Лев', 'Аррр!', 4)
@@ -159,4 +162,3 @@ staff[1].feed(animals[3])
 
 staff[0].heal(staff[2])
 staff[1].feed(staff[2])
-'''
